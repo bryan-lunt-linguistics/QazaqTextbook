@@ -1,6 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{qqbook}[2024-11-22 ]
-\LoadClass{book}
+\LoadClass{book} %%% for double-sided print and binding
+
+%\LoadClass[oneside]{book} %%% for screen PDFs and webpages
 
 %% About how to make your own book class %%
 %% https://tex.stackexchange.com/questions/159746/book-class-instructors-guide %%%

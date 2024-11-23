@@ -1,5 +1,41 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{qqbook}[2024-11-22 ]
+\ProvidesClass{qqbook}%[2024-11-22 ]
+
+
+%%%%% INTERNATIONALIZATION SUPPORT %%%%%
+% https://en.wikibooks.org/wiki/LaTeX/Internationalization#Polyglossia
+
+\usepackage{iftex}
+\ifPDFTeX % PDFLaTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[OT2,T2A]{fontenc}
+  \usepackage[kazakh,main=american,provide+=*]{babel}
+  \usepackage{lmodern}
+  
+\else % LuaLaTeX & XeLaTeX (tectonic)
+  \usepackage{fontspec}
+  \usepackage{polyglossia}
+  \setmainlanguage{english}
+  \setotherlanguage{kazakh}
+  
+\fi
+
+
+
+
+
+%%%% END INTERNATIONALIZATION %%%%
+
+
+
+%\usepackage{ifthen} %%% conditionals to handle differences in screen vs print versions
+
+%%%%%%%% BOOLEANS %%%%%%%%%
+%\newboolean{ForBinding}
+%\newboolean{ForPrinting}
+%\newboolean{ForScreen}
+
+
 \LoadClass{book} %%% for double-sided print and binding
 
 %\LoadClass[oneside]{book} %%% for screen PDFs and webpages
@@ -20,9 +56,21 @@
 %%% Dummy text %%%
 \usepackage{lipsum}
 
+%%%% TODOs %%%%
+\usepackage{todonotes}
 
 
 %%%% Tools for references %%%%
 \usepackage{varioref}
 \usepackage{hyperref}
-\usepackage{cleveref}
+\usepackage[english]{cleveref}
+
+
+%%%% Figures %%%%
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+%%%% Tools for project structure %%%%
+\usepackage{subfiles}
